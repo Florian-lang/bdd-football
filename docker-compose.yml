@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  footballbdd_est:
+    image: postgres
+    container_name: est
+    environment:
+      POSTGRES_PASSWORD: est
+    ports:
+      - "5432:5432"
+
+  footballbdd_ouest:
+    image: postgres
+    container_name: ouest
+    environment:
+      POSTGRES_PASSWORD: ouest
+    ports:
+      - "5433:5432"
+
+  footballbdd_sud:
+    image: postgres
+    container_name: sud
+    environment:
+      POSTGRES_PASSWORD: sud
+    ports:
+      - "5434:5432"
+
+  footballbdd_nord:
+    image: postgres
+    container_name: nord
+    environment:
+      POSTGRES_PASSWORD: nord
+    ports:
+      - "5435:5432"
+
+  footballbdd_centre:
+    image: postgres
+    container_name: centre
+    environment:
+      POSTGRES_PASSWORD: centre
+    ports:
+      - "5436:5432"
