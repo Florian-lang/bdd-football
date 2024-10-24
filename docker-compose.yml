@@ -1,4 +1,6 @@
-version: '3.4'
+networks:
+  football_network:
+    driver: bridge
 
 services:
   footballbdd_est:
@@ -6,37 +8,52 @@ services:
     container_name: est
     environment:
       POSTGRES_PASSWORD: est
+      POSTGRES_DB: football
     ports:
       - "5432:5432"
+    networks:
+      - football_network
 
   footballbdd_ouest:
     image: postgres
     container_name: ouest
     environment:
       POSTGRES_PASSWORD: ouest
+      POSTGRES_DB: football
     ports:
       - "5433:5432"
+    networks:
+      - football_network
 
   footballbdd_sud:
     image: postgres
     container_name: sud
     environment:
       POSTGRES_PASSWORD: sud
+      POSTGRES_DB: football
     ports:
       - "5434:5432"
+    networks:
+      - football_network
 
   footballbdd_nord:
     image: postgres
     container_name: nord
     environment:
       POSTGRES_PASSWORD: nord
+      POSTGRES_DB: football
     ports:
       - "5435:5432"
+    networks:
+      - football_network
 
   footballbdd_centre:
     image: postgres
     container_name: centre
     environment:
       POSTGRES_PASSWORD: centre
+      POSTGRES_DB: football
     ports:
       - "5436:5432"
+    networks:
+      - football_network
