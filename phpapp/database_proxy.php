@@ -16,7 +16,7 @@ function connectTodDb($host, $dbname, $user, $password) {
 }
 
 function executeQuery($query) {
-    $user = "postgres";
+    $user = $_SESSION['username'];
     $host = $_SESSION['host'];
     $password = $_SESSION['password'];
     $dbname = 'postgres';

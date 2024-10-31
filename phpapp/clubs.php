@@ -8,6 +8,11 @@ if (!isset($_SESSION['username'])) {
 include_once 'database_proxy.php';
 
 $query = "SELECT * FROM club_sportif";
+if($_SESSION['region'] !== 'centre') {
+    $query = "SELECT * FROM club_sportif_{$_SESSION['region']}";
+}
+
+$query = "SELECT * FROM club_sportif";
 $clubs = executeQuery($query);
 ?>
 <!DOCTYPE html>
