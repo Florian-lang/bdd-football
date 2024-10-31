@@ -57,3 +57,15 @@ services:
       - "5436:5432"
     networks:
       - football_network
+  
+  phpapp:
+    image: php:8.1-apache
+    container_name: phpapp
+    volumes:
+      - ./phpapp:/var/www/html
+      - ./phpapp/custom-apache.conf:/etc/apache2/sites-available/000-default.conf
+    ports:
+      - "8080:80"
+    networks:
+      - football_network
+    command: bash -c "apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql pgsql && apache2-foreground"
