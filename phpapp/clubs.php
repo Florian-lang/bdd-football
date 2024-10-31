@@ -12,7 +12,6 @@ if($_SESSION['region'] !== 'centre') {
     $query = "SELECT * FROM club_sportif_{$_SESSION['region']}";
 }
 
-$query = "SELECT * FROM club_sportif";
 $clubs = executeQuery($query);
 ?>
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ $clubs = executeQuery($query);
                     foreach ($clubs as $club): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($club['code_club']); ?></td>
-                            <td><?php echo htmlspecialchars($club['dirigeant']); ?></td>
+                            <td><?php echo $club['dirigeant']; ?></td>
                             <td><?php echo htmlspecialchars($club['nom_club']); ?></td>
                             <td><?php echo htmlspecialchars($club['region']); ?></td>
                             <td><?php echo htmlspecialchars($club['date_creation']); ?></td>
